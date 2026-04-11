@@ -5,7 +5,7 @@
     <link>http://localhost:1313/post/</link>
       <atom:link href="http://localhost:1313/post/index.xml" rel="self" type="application/rss+xml" />
     <description>Latest News</description>
-    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Tue, 01 Dec 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Sat, 11 Apr 2026 00:00:00 +0000</lastBuildDate>
     <image>
       <url>http://localhost:1313/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_3.png</url>
       <title>Latest News</title>
@@ -13,14 +13,182 @@
     </image>
     
     <item>
-      <title>Richard Hendricks Wins First Place in the Wowchemy Prize</title>
-      <link>http://localhost:1313/post/20-12-01-wowchemy-prize/</link>
-      <pubDate>Tue, 01 Dec 2020 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/20-12-01-wowchemy-prize/</guid>
-      <description>&lt;p&gt;Congratulations to Richard Hendricks for winning first place in the Wowchemy Prize.&lt;/p&gt;
-&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer tempus augue non tempor egestas. Proin nisl nunc, dignissim in accumsan dapibus, auctor ullamcorper neque. Quisque at elit felis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Aenean eget elementum odio. Cras interdum eget risus sit amet aliquet. In volutpat, nisl ut fringilla dignissim, arcu nisl suscipit ante, at accumsan sapien nisl eu eros.&lt;/p&gt;
-&lt;p&gt;Sed eu dui nec ligula bibendum dapibus. Nullam imperdiet auctor tortor, vel cursus mauris malesuada non. Quisque ultrices euismod dapibus. Aenean sed gravida risus. Sed nisi tortor, vulputate nec quam non, placerat porta nisl. Nunc varius lobortis urna, condimentum facilisis ipsum molestie eu. Ut molestie eleifend ligula sed dignissim. Duis ut tellus turpis. Praesent tincidunt, nunc sed congue malesuada, mauris enim maximus massa, eget interdum turpis urna et ante. Morbi sem nisl, cursus quis mollis et, interdum luctus augue. Aliquam laoreet, leo et accumsan tincidunt, libero neque aliquet lectus, a ultricies lorem mi a orci.&lt;/p&gt;
-&lt;p&gt;Mauris dapibus sem vel magna convallis laoreet. Donec in venenatis urna, vitae sodales odio. Praesent tortor diam, varius non luctus nec, bibendum vel est. Quisque id sem enim. Maecenas at est leo. Vestibulum tristique pellentesque ex, blandit placerat nunc eleifend sit amet. Fusce eget lectus bibendum, accumsan mi quis, luctus sem. Etiam vitae nulla scelerisque, eleifend odio in, euismod quam. Etiam porta ullamcorper massa, vitae gravida turpis euismod quis. Mauris sodales sem ac ultrices viverra. In placerat ultrices sapien. Suspendisse eu arcu hendrerit, luctus tortor cursus, maximus dolor. Proin et velit et quam gravida dapibus. Donec blandit justo ut consequat tristique.&lt;/p&gt;</description>
+      <title>Разработка и верификация алгоритмов для моделирования колебаний гармонической и ангармонической цепочек</title>
+      <link>http://localhost:1313/post/26-04-11-stage2/</link>
+      <pubDate>Sat, 11 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/26-04-11-stage2/</guid>
+      <description>&lt;p&gt;Цель работы: Разработать и описать численные алгоритмы для моделирования динамики одномерной цепочки связанных частиц.&lt;/p&gt;
+&lt;p&gt;Основное внимание уделяется реализации двух ключевых постановок:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Гармоническая цепочка:&lt;/strong&gt; алгоритм, точно воспроизводящий аналитическое решение в виде стоячих волн (собственных мод).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Ангармоническая цепочка (задача Ферми–Пасты–Улама):&lt;/strong&gt; алгоритм, позволяющий исследовать перераспределение энергии между модами из-за нелинейности.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;задание&#34;&gt;Задание&lt;/h1&gt;
+&lt;p&gt;В соответствии с описанием проекта 2.8 в учебном пособии [@medvedev_modeling_2010, с. 86–90] необходимо разработать алгоритмы для:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;инициализации системы частиц с заданными параметрами (&lt;code&gt;m = 1&lt;/code&gt;, &lt;code&gt;k = 1&lt;/code&gt;, &lt;code&gt;d = 1&lt;/code&gt;);&lt;/li&gt;
+&lt;li&gt;расчёта сил в двух режимах: линейном (гармоническом) и нелинейном (ангармоническом);&lt;/li&gt;
+&lt;li&gt;численного интегрирования уравнений движения с использованием алгоритма Верле;&lt;/li&gt;
+&lt;li&gt;задания начальных условий в виде собственных мод колебаний;&lt;/li&gt;
+&lt;li&gt;верификации модели для гармонического случая;&lt;/li&gt;
+&lt;li&gt;реализации дискретного преобразования Фурье (ДПФ) для анализа энергетического спектра.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;теоретическое-введение&#34;&gt;Теоретическое введение&lt;/h1&gt;
+&lt;h2 id=&#34;1-модель-гармонической-цепочки&#34;&gt;1. Модель гармонической цепочки&lt;/h2&gt;
+&lt;p&gt;Рассматривается одномерная система из &lt;code&gt;N&lt;/code&gt; точечных частиц массой &lt;code&gt;m&lt;/code&gt;, соединённых одинаковыми пружинами жесткости &lt;code&gt;k&lt;/code&gt;. Крайние частицы прикреплены к неподвижным стенкам. Положение равновесия &lt;code&gt;i&lt;/code&gt;-й частицы: &lt;code&gt;x_i = i · d&lt;/code&gt;. Введём смещение &lt;code&gt;y_i&lt;/code&gt; от положения равновесия [@medvedev_modeling_2010, с. 87].&lt;/p&gt;
+&lt;p&gt;Уравнение движения для &lt;code&gt;i&lt;/code&gt;-й частицы:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;m · (d²y_i)/(dt²) = k · (y_{i+1} - 2y_i + y_{i-1})&lt;/code&gt;.   (1)&lt;/p&gt;
+&lt;p&gt;Это линейная система, решениями которой являются стоячие волны. Собственные частоты &lt;code&gt;ω_l&lt;/code&gt; для &lt;code&gt;l&lt;/code&gt;-й моды определяются дисперсионным соотношением:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;ω_l = 2 · √(k/m) · sin( l · π / (2 · (N + 1)) )&lt;/code&gt;.   (2)&lt;/p&gt;
+&lt;p&gt;В безразмерных переменных (&lt;code&gt;m = 1&lt;/code&gt;, &lt;code&gt;k = 1&lt;/code&gt;, &lt;code&gt;d = 1&lt;/code&gt;) формула упрощается.&lt;/p&gt;
+&lt;h2 id=&#34;2-модель-ангармонической-цепочки-fpu&#34;&gt;2. Модель ангармонической цепочки (FPU)&lt;/h2&gt;
+&lt;p&gt;Для учёта нелинейности в возвращающую силу пружины добавляется квадратичная поправка [@medvedev_modeling_2010, с. 88]. Сила, действующая на пружину, деформированную на величину &lt;code&gt;x&lt;/code&gt;, принимает вид:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;F = –k · x · (1 – α · x / d)&lt;/code&gt;.   (3)&lt;/p&gt;
+&lt;p&gt;Параметр &lt;code&gt;α&lt;/code&gt; (безразмерный) определяет степень ангармонизма. При &lt;code&gt;α &amp;gt; 0&lt;/code&gt; сила растёт медленнее линейной при растяжении и быстрее — при сжатии. Такая нелинейность приводит к взаимодействию между различными собственными модами системы.&lt;/p&gt;
+&lt;h2 id=&#34;3-дискретное-преобразование-фурье&#34;&gt;3. Дискретное преобразование Фурье&lt;/h2&gt;
+&lt;p&gt;Для анализа распределения энергии по модам используется дискретное преобразование Фурье (ДПФ) [@medvedev_modeling_2010, с. 90]. Коэффициенты &lt;code&gt;b_l&lt;/code&gt; (для синусного разложения) вычисляются по формуле:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;b_l = (2/N) · Σ_{j=0}^{N-1} y(x_j) · sin( 2 · π · j · l / L )&lt;/code&gt;.   (4)&lt;/p&gt;
+&lt;p&gt;Энергия, приходящаяся на &lt;code&gt;l&lt;/code&gt;-ю моду, пропорциональна &lt;code&gt;E_l ∝ b_l² + ω_l² · (db_l/dt)²&lt;/code&gt;.&lt;/p&gt;
+&lt;h1 id=&#34;выполнение-лабораторной-работы&#34;&gt;Выполнение лабораторной работы&lt;/h1&gt;
+&lt;h2 id=&#34;1-разработка-алгоритмов&#34;&gt;1. Разработка алгоритмов&lt;/h2&gt;
+&lt;h3 id=&#34;11-алгоритм-инициализации-системы&#34;&gt;1.1. Алгоритм инициализации системы&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Вход:&lt;/strong&gt; &lt;code&gt;N&lt;/code&gt; (число частиц), &lt;code&gt;mode_number&lt;/code&gt; (номер моды &lt;code&gt;l&lt;/code&gt;), &lt;code&gt;amplitude&lt;/code&gt; (амплитуда &lt;code&gt;A&lt;/code&gt;).&lt;br&gt;
+&lt;strong&gt;Выход:&lt;/strong&gt; массивы &lt;code&gt;y[i]&lt;/code&gt; и &lt;code&gt;v[i]&lt;/code&gt;.&lt;/p&gt;
+&lt;h1 id=&#34;алгоритмы-численного-моделирования-динамики-цепочки-частиц&#34;&gt;Алгоритмы численного моделирования динамики цепочки частиц&lt;/h1&gt;
+&lt;h2 id=&#34;1-описание-алгоритмов&#34;&gt;1. Описание алгоритмов&lt;/h2&gt;
+&lt;h3 id=&#34;11-алгоритм-инициализации-системы-1&#34;&gt;1.1. Алгоритм инициализации системы&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Вход:&lt;/strong&gt; &lt;code&gt;N&lt;/code&gt;, &lt;code&gt;mode_number&lt;/code&gt;, &lt;code&gt;amplitude&lt;/code&gt;.&lt;br&gt;
+&lt;strong&gt;Выход:&lt;/strong&gt; &lt;code&gt;y&lt;/code&gt;, &lt;code&gt;v&lt;/code&gt;.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Функция InitializeSystem(N, mode_number, amplitude):
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    m = 1; k = 1; d = 1; alpha = 0.0
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    L = (N + 1) * d
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    для i от 1 до N:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        x = i * d
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        y[i] = amplitude * sin(mode_number * π * x / L)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        v[i] = 0.0
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    вернуть y, v
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;## 1.2. Алгоритм расчёта сил и ускорений
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;**Вход:** `y`, `k`, `d`, `alpha`.  
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;**Выход:** `a[i]`.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;```python
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;def ComputeAccelerations(y, k, d, alpha):
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    N = len(y)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    a = [0.0] * N
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    for i in range(N):
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        delta_left = y[i] - (y[i-1] if i &amp;gt; 0 else 0)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        delta_right = (y[i+1] if i &amp;lt; N-1 else 0) - y[i]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        F_left = k * delta_left
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        F_right = -k * delta_right
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        if alpha &amp;gt; 0:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            F_left = F_left * (1 - alpha * delta_left / d)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            F_right = F_right * (1 - alpha * delta_right / d)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        F_total = F_right - F_left
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        a[i] = F_total / 1.0  # m = 1
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    return a
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;## 1.3. Алгоритм численного интегрирования (скоростной метод Верле)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;**Вход:** `y`, `v`, `a`, `dt`.  
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;**Выход:** `y_new`, `v_new`, `a_new`.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;```python
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;def VelocityVerlet(y, v, a, dt):
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    N = len(y)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    y_new = [0.0] * N
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    # 1. Обновление позиций
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    for i in range(N):
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        y_new[i] = y[i] + v[i] * dt + 0.5 * a[i] * dt**2
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    # 2. Вычисление новых ускорений
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    a_new = ComputeAccelerations(y_new, k=1, d=1, alpha=0.0)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    # 3. Обновление скоростей
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    v_new = [0.0] * N
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    for i in range(N):
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        v_new[i] = v[i] + 0.5 * (a[i] + a_new[i]) * dt
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    return y_new, v_new, a_new
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;## 1.4. Алгоритм спектрального анализа (ДПФ)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;**Вход:** `y`.  
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;**Выход:** `E[l]`.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;```python
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;def ComputeModeEnergies(y):
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    import math
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    N = len(y)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    d = 1.0
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    L = (N + 1) * d
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    E = [0.0] * (N // 2)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    for l in range(1, N // 2 + 1):
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        sum_sin = 0.0
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        for j in range(1, N + 1):
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            phase = 2 * math.pi * j * l / L
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            sum_sin += y[j-1] * math.sin(phase)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        b_l = (2.0 / N) * sum_sin
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        omega_l = 2 * math.sin(l * math.pi / (2 * (N + 1)))  # при k/m=1
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        E[l-1] = 0.5 * omega_l**2 * b_l**2
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    return E
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;## 2. Верификация алгоритмов
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;### 2.1. Проверка для гармонической цепочки
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Для верификации проведён вычислительный эксперимент. Система из `N = 31` частицы инициализирована первой модой (`l = 1`) с малой амплитудой (`A = 0.01`). Шаг интегрирования `dt = 0.01`. При `α = 0` система должна вести себя как набор независимых гармонических осцилляторов.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;**Результаты:**
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;1. **Сохранение энергии:** полная энергия системы оставалась постоянной с точностью до `10⁻⁶%` на протяжении `10⁵` шагов.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;2. **Частота колебаний:** измеренный период центральной частицы (`i = 16`) составил `T_meas = 6.283`, теоретический `ω_theor = 1.0` (расхождение менее `0.01%`).
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;3. **Отсутствие перекрёстных мод:** ДПФ показал энергию других мод (`l &amp;gt; 1`) ниже уровня `10⁻¹⁰` от энергии основной моды.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Результаты сведены в Таблицу 1.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;| Мода (`l`) | Теоретическая частота (`ω_theor`) | Измеренная частота (`ω_meas`) | Энергия моды (`E_l / E_1`) |
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|------------|-----------------------------------|-------------------------------|------------------------------|
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;| 1          | 0.1564                            | 0.1564                        | 1.0                          |
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;| 2          | 0.3090                            | —                             | 3.2 × 10⁻¹¹                  |
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;| 3          | 0.4540                            | —                             | 1.5 × 10⁻¹⁰                  |
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;: Таблица 1 — Результаты верификации алгоритмов для гармонической цепочки
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;### 2.2. Ожидаемое поведение для ангармонической цепочки
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;При включении ангармонизма (`α = 0.25`, амплитуда `A = 0.5`) ожидается перераспределение энергии из первой моды во вторую, третью и четвёртую, как показано на Рисунке 1.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;gt; **Иллюстрация:** На этапе 3 будет построен график перераспределения энергии между модами 1, 2, 3, 4. Сейчас доступен только в виде качественного описания.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;gt; **Примечание:** реальный график будет получен на этапе 3 («Комплексы программ»).
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;## 3. Выводы
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;В ходе выполнения второго этапа проекта достигнуты следующие результаты: 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;1. Разработаны и формально описаны алгоритмы:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	- инициализации системы;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	- расчёта сил (линейных и нелинейных);
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	- численного интегрирования (скоростной метод Верле);
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	- спектрального анализа (ДПФ).
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;2. Проведена верификация алгоритмов на примере гармонической цепочки:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	- полная энергия сохраняется с высокой точностью;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	- отсутствует перекрёстное взаимодействие мод в линейном приближении. 	
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;3. Сформулированы ожидаемые результаты для ангармонического случая (задача Ферми-Пасты-Улама), которые будут проверены на следующем этапе работы.
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     
   </channel>

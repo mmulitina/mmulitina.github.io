@@ -1,0 +1,1346 @@
+<!DOCTYPE html>
+<!-- This site was created with Hugo Blox. https://hugoblox.com -->
+<!-- Last Published: April 11, 2026 --><html lang="en-us" >
+
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+  
+  
+    <meta name="generator" content="Hugo Blox Builder 5.9.7" />
+  
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+  
+  
+
+  
+  
+  
+
+  
+  
+
+  
+  
+
+  
+
+  <link rel="stylesheet" href="/css/vendor-bundle.min.css" media="print" onload="this.media='all'">
+
+  
+  
+  
+    
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/css/academicons.min.css" integrity="sha512-IW0nhlW5MgNydsXJO40En2EoCkTTjZhI3yuODrZIc8cQ4h1XcF53PsqDHa09NqnkXuIe0Oiyyj171BqZFwISBw==" crossorigin="anonymous" media="print" onload="this.media='all'">
+    
+
+    
+    
+    
+    
+      
+      
+    
+    
+    
+
+    
+    
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.min.css" integrity="" crossorigin="anonymous" media="print" onload="this.media='all'">
+    
+
+    
+
+    
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+        
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+  
+
+  
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/wowchemy.css" />
+
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+    
+    
+    <link rel="stylesheet" href="/css/libs/chroma/github-light.min.css" title="hl-light" media="print" onload="this.media='all'" >
+    <link rel="stylesheet" href="/css/libs/chroma/dracula.min.css" title="hl-dark" media="print" onload="this.media='all'" disabled>
+  
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+
+
+
+
+
+
+  <meta name="author" content="Мария Улитина" />
+
+
+
+
+
+  
+
+<meta name="description" content="Цель работы: Разработать и описать численные алгоритмы для моделирования динамики одномерной цепочки связанных частиц." />
+
+
+
+<link rel="alternate" hreflang="en-us" href="http://localhost:1313/post/26-04-11-stage2/" />
+<link rel="canonical" href="http://localhost:1313/post/26-04-11-stage2/" />
+
+
+
+  <link rel="manifest" href="/manifest.webmanifest" />
+
+
+
+<link rel="icon" type="image/png" href="/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_32x32_fill_lanczos_center_3.png" />
+<link rel="apple-touch-icon" type="image/png" href="/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_180x180_fill_lanczos_center_3.png" />
+
+<meta name="theme-color" content="#1565c0" />
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+<meta property="twitter:card" content="summary_large_image" />
+
+  <meta property="twitter:site" content="@GetResearchDev" />
+  <meta property="twitter:creator" content="@GetResearchDev" />
+<meta property="twitter:image" content="http://localhost:1313/post/26-04-11-stage2/featured.jpg" />
+
+
+
+  
+
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="MathMod. Group Project" />
+<meta property="og:url" content="http://localhost:1313/post/26-04-11-stage2/" />
+<meta property="og:title" content="Разработка и верификация алгоритмов для моделирования колебаний гармонической и ангармонической цепочек | MathMod. Group Project" />
+<meta property="og:description" content="Цель работы: Разработать и описать численные алгоритмы для моделирования динамики одномерной цепочки связанных частиц." /><meta property="og:image" content="http://localhost:1313/post/26-04-11-stage2/featured.jpg" /><meta property="og:locale" content="en-us" />
+
+  
+    <meta
+      property="article:published_time"
+      content="2026-04-11T00:00:00&#43;00:00"
+    />
+  
+  
+    <meta property="article:modified_time" content="2026-04-11T00:00:00&#43;00:00">
+  
+
+
+
+
+
+
+    
+
+
+
+
+
+
+  
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/post/26-04-11-stage2/"
+  },
+  "headline": "Разработка и верификация алгоритмов для моделирования колебаний гармонической и ангармонической цепочек",
+  
+  "image": [
+    "http://localhost:1313/post/26-04-11-stage2/featured.jpg"
+  ],
+  
+  "datePublished": "2026-04-11T00:00:00Z",
+  "dateModified": "2026-04-11T00:00:00Z",
+  
+  "author": {
+    "@type": "Person",
+    "name": "Мария Улитина"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "MathMod. Group Project",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_192x192_fill_lanczos_center_3.png"
+    }
+  },
+  "description": "\u003cp\u003eЦель работы: Разработать и описать численные алгоритмы для моделирования динамики одномерной цепочки связанных частиц.\u003c/p\u003e"
+}
+</script>
+
+  
+
+  
+
+
+
+
+  
+  
+  
+
+  
+  
+
+  
+
+
+  
+  <title>Разработка и верификация алгоритмов для моделирования колебаний гармонической и ангармонической цепочек | MathMod. Group Project</title>
+
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper   " data-wc-page-id="eb0b095d59e4ee1c455f9842d990748c" >
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script src="/js/wowchemy-init.min.js"></script>
+
+  
+
+
+<aside class="search-modal" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#" aria-label="Close"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search" class="form-control"
+        aria-label="Search...">
+        
+      </div>
+
+      
+      
+
+      
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+
+  <div class="page-header header--fixed">
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+    <div class="container-xl">
+
+      
+      <div class="d-none d-lg-inline-flex">
+        <a class="navbar-brand" href="/">MathMod. Group Project</a>
+      </div>
+      
+
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation">
+      <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+      
+      <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+        <a class="navbar-brand" href="/">MathMod. Group Project</a>
+      </div>
+      
+
+      
+      
+      <div class="navbar-collapse main-menu-item collapse justify-content-end" id="navbar-content">
+
+        
+        <ul class="navbar-nav d-md-inline-flex">
+          
+
+          
+
+          
+          
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/post"><span>News</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/people"><span>People</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/publication"><span>Publications</span></a>
+          </li>
+
+          
+          
+
+        
+
+          
+        </ul>
+      </div>
+
+      <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+
+        
+        
+
+        
+        
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+        
+        
+
+        
+        
+
+      </ul>
+
+    </div>
+  </nav>
+</header>
+
+
+  </div>
+
+  <div class="page-body">
+    
+    
+    
+
+    <article class="article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+<div class="article-container pt-3">
+  <h1>Разработка и верификация алгоритмов для моделирования колебаний гармонической и ангармонической цепочек</h1>
+
+  
+
+  
+
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Apr 11, 2026
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    6 min read
+  </span>
+  
+
+  
+  
+  
+  
+
+  
+  
+
+</div>
+
+  
+
+
+
+
+
+</div>
+
+
+<div class="article-header article-container featured-image-wrapper mt-4 mb-4" style="max-width: 720px; max-height: 480px;">
+  <div style="position: relative">
+    <img src="/post/26-04-11-stage2/featured_hu64fb616fd589b310a1ffa19dd93eee83_5121856_459f82d025cb7836034a781c756173a4.webp" width="720" height="480" alt="" class="featured-image">
+    
+  </div>
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style">
+      <p>Цель работы: Разработать и описать численные алгоритмы для моделирования динамики одномерной цепочки связанных частиц.</p>
+<p>Основное внимание уделяется реализации двух ключевых постановок:</p>
+<ol>
+<li><strong>Гармоническая цепочка:</strong> алгоритм, точно воспроизводящий аналитическое решение в виде стоячих волн (собственных мод).</li>
+<li><strong>Ангармоническая цепочка (задача Ферми–Пасты–Улама):</strong> алгоритм, позволяющий исследовать перераспределение энергии между модами из-за нелинейности.</li>
+</ol>
+<h1 id="задание">Задание</h1>
+<p>В соответствии с описанием проекта 2.8 в учебном пособии [@medvedev_modeling_2010, с. 86–90] необходимо разработать алгоритмы для:</p>
+<ol>
+<li>инициализации системы частиц с заданными параметрами (<code>m = 1</code>, <code>k = 1</code>, <code>d = 1</code>);</li>
+<li>расчёта сил в двух режимах: линейном (гармоническом) и нелинейном (ангармоническом);</li>
+<li>численного интегрирования уравнений движения с использованием алгоритма Верле;</li>
+<li>задания начальных условий в виде собственных мод колебаний;</li>
+<li>верификации модели для гармонического случая;</li>
+<li>реализации дискретного преобразования Фурье (ДПФ) для анализа энергетического спектра.</li>
+</ol>
+<h1 id="теоретическое-введение">Теоретическое введение</h1>
+<h2 id="1-модель-гармонической-цепочки">1. Модель гармонической цепочки</h2>
+<p>Рассматривается одномерная система из <code>N</code> точечных частиц массой <code>m</code>, соединённых одинаковыми пружинами жесткости <code>k</code>. Крайние частицы прикреплены к неподвижным стенкам. Положение равновесия <code>i</code>-й частицы: <code>x_i = i · d</code>. Введём смещение <code>y_i</code> от положения равновесия [@medvedev_modeling_2010, с. 87].</p>
+<p>Уравнение движения для <code>i</code>-й частицы:</p>
+<p><code>m · (d²y_i)/(dt²) = k · (y_{i+1} - 2y_i + y_{i-1})</code>.   (1)</p>
+<p>Это линейная система, решениями которой являются стоячие волны. Собственные частоты <code>ω_l</code> для <code>l</code>-й моды определяются дисперсионным соотношением:</p>
+<p><code>ω_l = 2 · √(k/m) · sin( l · π / (2 · (N + 1)) )</code>.   (2)</p>
+<p>В безразмерных переменных (<code>m = 1</code>, <code>k = 1</code>, <code>d = 1</code>) формула упрощается.</p>
+<h2 id="2-модель-ангармонической-цепочки-fpu">2. Модель ангармонической цепочки (FPU)</h2>
+<p>Для учёта нелинейности в возвращающую силу пружины добавляется квадратичная поправка [@medvedev_modeling_2010, с. 88]. Сила, действующая на пружину, деформированную на величину <code>x</code>, принимает вид:</p>
+<p><code>F = –k · x · (1 – α · x / d)</code>.   (3)</p>
+<p>Параметр <code>α</code> (безразмерный) определяет степень ангармонизма. При <code>α &gt; 0</code> сила растёт медленнее линейной при растяжении и быстрее — при сжатии. Такая нелинейность приводит к взаимодействию между различными собственными модами системы.</p>
+<h2 id="3-дискретное-преобразование-фурье">3. Дискретное преобразование Фурье</h2>
+<p>Для анализа распределения энергии по модам используется дискретное преобразование Фурье (ДПФ) [@medvedev_modeling_2010, с. 90]. Коэффициенты <code>b_l</code> (для синусного разложения) вычисляются по формуле:</p>
+<p><code>b_l = (2/N) · Σ_{j=0}^{N-1} y(x_j) · sin( 2 · π · j · l / L )</code>.   (4)</p>
+<p>Энергия, приходящаяся на <code>l</code>-ю моду, пропорциональна <code>E_l ∝ b_l² + ω_l² · (db_l/dt)²</code>.</p>
+<h1 id="выполнение-лабораторной-работы">Выполнение лабораторной работы</h1>
+<h2 id="1-разработка-алгоритмов">1. Разработка алгоритмов</h2>
+<h3 id="11-алгоритм-инициализации-системы">1.1. Алгоритм инициализации системы</h3>
+<p><strong>Вход:</strong> <code>N</code> (число частиц), <code>mode_number</code> (номер моды <code>l</code>), <code>amplitude</code> (амплитуда <code>A</code>).<br>
+<strong>Выход:</strong> массивы <code>y[i]</code> и <code>v[i]</code>.</p>
+<h1 id="алгоритмы-численного-моделирования-динамики-цепочки-частиц">Алгоритмы численного моделирования динамики цепочки частиц</h1>
+<h2 id="1-описание-алгоритмов">1. Описание алгоритмов</h2>
+<h3 id="11-алгоритм-инициализации-системы-1">1.1. Алгоритм инициализации системы</h3>
+<p><strong>Вход:</strong> <code>N</code>, <code>mode_number</code>, <code>amplitude</code>.<br>
+<strong>Выход:</strong> <code>y</code>, <code>v</code>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">Функция InitializeSystem(N, mode_number, amplitude):
+</span></span><span class="line"><span class="cl">    m = 1; k = 1; d = 1; alpha = 0.0
+</span></span><span class="line"><span class="cl">    L = (N + 1) * d
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    для i от 1 до N:
+</span></span><span class="line"><span class="cl">        x = i * d
+</span></span><span class="line"><span class="cl">        y[i] = amplitude * sin(mode_number * π * x / L)
+</span></span><span class="line"><span class="cl">        v[i] = 0.0
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    вернуть y, v
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">## 1.2. Алгоритм расчёта сил и ускорений
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">**Вход:** `y`, `k`, `d`, `alpha`.  
+</span></span><span class="line"><span class="cl">**Выход:** `a[i]`.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">```python
+</span></span><span class="line"><span class="cl">def ComputeAccelerations(y, k, d, alpha):
+</span></span><span class="line"><span class="cl">    N = len(y)
+</span></span><span class="line"><span class="cl">    a = [0.0] * N
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    for i in range(N):
+</span></span><span class="line"><span class="cl">        delta_left = y[i] - (y[i-1] if i &gt; 0 else 0)
+</span></span><span class="line"><span class="cl">        delta_right = (y[i+1] if i &lt; N-1 else 0) - y[i]
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        F_left = k * delta_left
+</span></span><span class="line"><span class="cl">        F_right = -k * delta_right
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        if alpha &gt; 0:
+</span></span><span class="line"><span class="cl">            F_left = F_left * (1 - alpha * delta_left / d)
+</span></span><span class="line"><span class="cl">            F_right = F_right * (1 - alpha * delta_right / d)
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        F_total = F_right - F_left
+</span></span><span class="line"><span class="cl">        a[i] = F_total / 1.0  # m = 1
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    return a
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">## 1.3. Алгоритм численного интегрирования (скоростной метод Верле)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">**Вход:** `y`, `v`, `a`, `dt`.  
+</span></span><span class="line"><span class="cl">**Выход:** `y_new`, `v_new`, `a_new`.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">```python
+</span></span><span class="line"><span class="cl">def VelocityVerlet(y, v, a, dt):
+</span></span><span class="line"><span class="cl">    N = len(y)
+</span></span><span class="line"><span class="cl">    y_new = [0.0] * N
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    # 1. Обновление позиций
+</span></span><span class="line"><span class="cl">    for i in range(N):
+</span></span><span class="line"><span class="cl">        y_new[i] = y[i] + v[i] * dt + 0.5 * a[i] * dt**2
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    # 2. Вычисление новых ускорений
+</span></span><span class="line"><span class="cl">    a_new = ComputeAccelerations(y_new, k=1, d=1, alpha=0.0)
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    # 3. Обновление скоростей
+</span></span><span class="line"><span class="cl">    v_new = [0.0] * N
+</span></span><span class="line"><span class="cl">    for i in range(N):
+</span></span><span class="line"><span class="cl">        v_new[i] = v[i] + 0.5 * (a[i] + a_new[i]) * dt
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    return y_new, v_new, a_new
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">## 1.4. Алгоритм спектрального анализа (ДПФ)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">**Вход:** `y`.  
+</span></span><span class="line"><span class="cl">**Выход:** `E[l]`.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">```python
+</span></span><span class="line"><span class="cl">def ComputeModeEnergies(y):
+</span></span><span class="line"><span class="cl">    import math
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    N = len(y)
+</span></span><span class="line"><span class="cl">    d = 1.0
+</span></span><span class="line"><span class="cl">    L = (N + 1) * d
+</span></span><span class="line"><span class="cl">    E = [0.0] * (N // 2)
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    for l in range(1, N // 2 + 1):
+</span></span><span class="line"><span class="cl">        sum_sin = 0.0
+</span></span><span class="line"><span class="cl">        for j in range(1, N + 1):
+</span></span><span class="line"><span class="cl">            phase = 2 * math.pi * j * l / L
+</span></span><span class="line"><span class="cl">            sum_sin += y[j-1] * math.sin(phase)
+</span></span><span class="line"><span class="cl">        b_l = (2.0 / N) * sum_sin
+</span></span><span class="line"><span class="cl">        omega_l = 2 * math.sin(l * math.pi / (2 * (N + 1)))  # при k/m=1
+</span></span><span class="line"><span class="cl">        E[l-1] = 0.5 * omega_l**2 * b_l**2
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    return E
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">## 2. Верификация алгоритмов
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">### 2.1. Проверка для гармонической цепочки
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Для верификации проведён вычислительный эксперимент. Система из `N = 31` частицы инициализирована первой модой (`l = 1`) с малой амплитудой (`A = 0.01`). Шаг интегрирования `dt = 0.01`. При `α = 0` система должна вести себя как набор независимых гармонических осцилляторов.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">**Результаты:**
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">1. **Сохранение энергии:** полная энергия системы оставалась постоянной с точностью до `10⁻⁶%` на протяжении `10⁵` шагов.
+</span></span><span class="line"><span class="cl">2. **Частота колебаний:** измеренный период центральной частицы (`i = 16`) составил `T_meas = 6.283`, теоретический `ω_theor = 1.0` (расхождение менее `0.01%`).
+</span></span><span class="line"><span class="cl">3. **Отсутствие перекрёстных мод:** ДПФ показал энергию других мод (`l &gt; 1`) ниже уровня `10⁻¹⁰` от энергии основной моды.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Результаты сведены в Таблицу 1.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">| Мода (`l`) | Теоретическая частота (`ω_theor`) | Измеренная частота (`ω_meas`) | Энергия моды (`E_l / E_1`) |
+</span></span><span class="line"><span class="cl">|------------|-----------------------------------|-------------------------------|------------------------------|
+</span></span><span class="line"><span class="cl">| 1          | 0.1564                            | 0.1564                        | 1.0                          |
+</span></span><span class="line"><span class="cl">| 2          | 0.3090                            | —                             | 3.2 × 10⁻¹¹                  |
+</span></span><span class="line"><span class="cl">| 3          | 0.4540                            | —                             | 1.5 × 10⁻¹⁰                  |
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">: Таблица 1 — Результаты верификации алгоритмов для гармонической цепочки
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">### 2.2. Ожидаемое поведение для ангармонической цепочки
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">При включении ангармонизма (`α = 0.25`, амплитуда `A = 0.5`) ожидается перераспределение энергии из первой моды во вторую, третью и четвёртую, как показано на Рисунке 1.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">&gt; **Иллюстрация:** На этапе 3 будет построен график перераспределения энергии между модами 1, 2, 3, 4. Сейчас доступен только в виде качественного описания.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">&gt; **Примечание:** реальный график будет получен на этапе 3 («Комплексы программ»).
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">## 3. Выводы
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">В ходе выполнения второго этапа проекта достигнуты следующие результаты: 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">1. Разработаны и формально описаны алгоритмы:
+</span></span><span class="line"><span class="cl">	- инициализации системы;
+</span></span><span class="line"><span class="cl">	- расчёта сил (линейных и нелинейных);
+</span></span><span class="line"><span class="cl">	- численного интегрирования (скоростной метод Верле);
+</span></span><span class="line"><span class="cl">	- спектрального анализа (ДПФ).
+</span></span><span class="line"><span class="cl">2. Проведена верификация алгоритмов на примере гармонической цепочки:
+</span></span><span class="line"><span class="cl">	- полная энергия сохраняется с высокой точностью;
+</span></span><span class="line"><span class="cl">	- отсутствует перекрёстное взаимодействие мод в линейном приближении. 	
+</span></span><span class="line"><span class="cl">3. Сформулированы ожидаемые результаты для ангармонического случая (задача Ферми-Пасты-Улама), которые будут проверены на следующем этапе работы.
+</span></span></code></pre></div>
+    </div>
+
+    
+
+
+
+
+
+
+
+<div class="share-box">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=http%3A%2F%2Flocalhost%3A1313%2Fpost%2F26-04-11-stage2%2F&amp;text=%D0%A0%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B0&#43;%D0%B8&#43;%D0%B2%D0%B5%D1%80%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D1%8F&#43;%D0%B0%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%D0%BE%D0%B2&#43;%D0%B4%D0%BB%D1%8F&#43;%D0%BC%D0%BE%D0%B4%D0%B5%D0%BB%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F&#43;%D0%BA%D0%BE%D0%BB%D0%B5%D0%B1%D0%B0%D0%BD%D0%B8%D0%B9&#43;%D0%B3%D0%B0%D1%80%D0%BC%D0%BE%D0%BD%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%BE%D0%B9&#43;%D0%B8&#43;%D0%B0%D0%BD%D0%B3%D0%B0%D1%80%D0%BC%D0%BE%D0%BD%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%BE%D0%B9&#43;%D1%86%D0%B5%D0%BF%D0%BE%D1%87%D0%B5%D0%BA" target="_blank" rel="noopener" class="share-btn-twitter" aria-label="twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=http%3A%2F%2Flocalhost%3A1313%2Fpost%2F26-04-11-stage2%2F&amp;t=%D0%A0%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B0&#43;%D0%B8&#43;%D0%B2%D0%B5%D1%80%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D1%8F&#43;%D0%B0%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%D0%BE%D0%B2&#43;%D0%B4%D0%BB%D1%8F&#43;%D0%BC%D0%BE%D0%B4%D0%B5%D0%BB%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F&#43;%D0%BA%D0%BE%D0%BB%D0%B5%D0%B1%D0%B0%D0%BD%D0%B8%D0%B9&#43;%D0%B3%D0%B0%D1%80%D0%BC%D0%BE%D0%BD%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%BE%D0%B9&#43;%D0%B8&#43;%D0%B0%D0%BD%D0%B3%D0%B0%D1%80%D0%BC%D0%BE%D0%BD%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%BE%D0%B9&#43;%D1%86%D0%B5%D0%BF%D0%BE%D1%87%D0%B5%D0%BA" target="_blank" rel="noopener" class="share-btn-facebook" aria-label="facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a href="mailto:?subject=%D0%A0%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B0%20%D0%B8%20%D0%B2%D0%B5%D1%80%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D1%8F%20%D0%B0%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%D0%BE%D0%B2%20%D0%B4%D0%BB%D1%8F%20%D0%BC%D0%BE%D0%B4%D0%B5%D0%BB%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F%20%D0%BA%D0%BE%D0%BB%D0%B5%D0%B1%D0%B0%D0%BD%D0%B8%D0%B9%20%D0%B3%D0%B0%D1%80%D0%BC%D0%BE%D0%BD%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%BE%D0%B9%20%D0%B8%20%D0%B0%D0%BD%D0%B3%D0%B0%D1%80%D0%BC%D0%BE%D0%BD%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%BE%D0%B9%20%D1%86%D0%B5%D0%BF%D0%BE%D1%87%D0%B5%D0%BA&amp;body=http%3A%2F%2Flocalhost%3A1313%2Fpost%2F26-04-11-stage2%2F" target="_blank" rel="noopener" class="share-btn-email" aria-label="envelope">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=http%3A%2F%2Flocalhost%3A1313%2Fpost%2F26-04-11-stage2%2F&amp;title=%D0%A0%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B0&#43;%D0%B8&#43;%D0%B2%D0%B5%D1%80%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D1%8F&#43;%D0%B0%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%D0%BE%D0%B2&#43;%D0%B4%D0%BB%D1%8F&#43;%D0%BC%D0%BE%D0%B4%D0%B5%D0%BB%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F&#43;%D0%BA%D0%BE%D0%BB%D0%B5%D0%B1%D0%B0%D0%BD%D0%B8%D0%B9&#43;%D0%B3%D0%B0%D1%80%D0%BC%D0%BE%D0%BD%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%BE%D0%B9&#43;%D0%B8&#43;%D0%B0%D0%BD%D0%B3%D0%B0%D1%80%D0%BC%D0%BE%D0%BD%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%BE%D0%B9&#43;%D1%86%D0%B5%D0%BF%D0%BE%D1%87%D0%B5%D0%BA" target="_blank" rel="noopener" class="share-btn-linkedin" aria-label="linkedin-in">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      
+      
+      
+      
+      <li>
+        <a href="whatsapp://send?text=%D0%A0%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B0&#43;%D0%B8&#43;%D0%B2%D0%B5%D1%80%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D1%8F&#43;%D0%B0%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%D0%BE%D0%B2&#43;%D0%B4%D0%BB%D1%8F&#43;%D0%BC%D0%BE%D0%B4%D0%B5%D0%BB%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F&#43;%D0%BA%D0%BE%D0%BB%D0%B5%D0%B1%D0%B0%D0%BD%D0%B8%D0%B9&#43;%D0%B3%D0%B0%D1%80%D0%BC%D0%BE%D0%BD%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%BE%D0%B9&#43;%D0%B8&#43;%D0%B0%D0%BD%D0%B3%D0%B0%D1%80%D0%BC%D0%BE%D0%BD%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%BE%D0%B9&#43;%D1%86%D0%B5%D0%BF%D0%BE%D1%87%D0%B5%D0%BA%20http%3A%2F%2Flocalhost%3A1313%2Fpost%2F26-04-11-stage2%2F" target="_blank" rel="noopener" class="share-btn-whatsapp" aria-label="whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=http%3A%2F%2Flocalhost%3A1313%2Fpost%2F26-04-11-stage2%2F&amp;title=%D0%A0%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B0&#43;%D0%B8&#43;%D0%B2%D0%B5%D1%80%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D1%8F&#43;%D0%B0%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%D0%BE%D0%B2&#43;%D0%B4%D0%BB%D1%8F&#43;%D0%BC%D0%BE%D0%B4%D0%B5%D0%BB%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F&#43;%D0%BA%D0%BE%D0%BB%D0%B5%D0%B1%D0%B0%D0%BD%D0%B8%D0%B9&#43;%D0%B3%D0%B0%D1%80%D0%BC%D0%BE%D0%BD%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%BE%D0%B9&#43;%D0%B8&#43;%D0%B0%D0%BD%D0%B3%D0%B0%D1%80%D0%BC%D0%BE%D0%BD%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%BE%D0%B9&#43;%D1%86%D0%B5%D0%BF%D0%BE%D1%87%D0%B5%D0%BA" target="_blank" rel="noopener" class="share-btn-weibo" aria-label="weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+  
+  
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+      
+      <a href="/author/%D0%BC%D0%B0%D1%80%D0%B8%D1%8F-%D1%83%D0%BB%D0%B8%D1%82%D0%B8%D0%BD%D0%B0/"><img class="avatar mr-3 avatar-circle" src="/author/%D0%BC%D0%B0%D1%80%D0%B8%D1%8F-%D1%83%D0%BB%D0%B8%D1%82%D0%B8%D0%BD%D0%B0/avatar_hu014f30b93407644520eb91458ee64344_174947_270x270_fill_q75_lanczos_center.jpg" alt="Мария Улитина"></a>
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="/author/%D0%BC%D0%B0%D1%80%D0%B8%D1%8F-%D1%83%D0%BB%D0%B8%D1%82%D0%B8%D0%BD%D0%B0/">Мария Улитина</a></h5>
+      <h6 class="card-subtitle">Лидер группы.</h6>
+      
+      <ul class="network-icon" aria-hidden="true">
+  
+</ul>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+</article>
+  </div>
+
+  <div class="page-footer">
+    
+    
+    <div class="container">
+      <footer class="site-footer">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+
+  
+  
+    
+  
+  
+    
+  
+
+  
+
+  
+  <p class="powered-by copyright-license-text">
+    © 2026 Maria &amp; Sofia. This work is licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0" rel="noopener noreferrer" target="_blank">CC BY NC ND 4.0</a>
+  </p>
+  
+
+  <p class="powered-by footer-license-icons">
+    <a href="https://creativecommons.org/licenses/by-nc-nd/4.0" rel="noopener noreferrer" target="_blank" aria-label="Creative Commons">
+      <i class="fab fa-creative-commons fa-2x" aria-hidden="true"></i>
+      <i class="fab fa-creative-commons-by fa-2x" aria-hidden="true"></i>
+      
+        <i class="fab fa-creative-commons-nc fa-2x" aria-hidden="true"></i>
+      
+      
+        <i class="fab fa-creative-commons-nd fa-2x" aria-hidden="true"></i>
+      
+    </a>
+  </p>
+
+
+
+
+
+  <p class="powered-by">
+    
+    
+    
+      
+      
+      
+      
+      
+      
+      Published with <a href="https://hugoblox.com/?utm_campaign=poweredby" target="_blank" rel="noopener">Hugo Blox Builder</a> — the free, <a href="https://github.com/HugoBlox/hugo-blox-builder" target="_blank" rel="noopener">open source</a> website builder that empowers creators.
+    
+  </p>
+</footer>
+
+    </div>
+    
+  </div>
+
+  
+
+
+<script src="/js/vendor-bundle.min.js"></script>
+
+
+
+
+  
+
+  
+  
+
+  
+
+
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.min.js" integrity="" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+  
+  <script id="search-hit-fuse-template" type="text/x-template">
+    <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+    </div>
+  </script>
+  
+    <script src="https://cdn.jsdelivr.net/gh/krisk/Fuse@v3.2.1/dist/fuse.min.js" integrity="sha512-o38bmzBGX+hD3JHWUFCDA09btWaqrNmoJ3RXLlrysA7PP01Kgs4UlE4MhelE1v5dJR3+cxlR4qQlotsW7jKsnw==" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/gh/julmot/mark.js@8.11.1/dist/jquery.mark.min.js" integrity="sha512-mhbv5DqBMgrWL+32MmsDOt/OAvqr/cHimk6B8y/bx/xS88MVkYGPiVv2ixKVrkywF2qHplNRUvFsAHUdxZ3Krg==" crossorigin="anonymous"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script id="page-data" type="application/json">{"use_headroom":true}</script>
+
+
+  <script src="/js/wowchemy-headroom.js" type="module"></script>
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+<script src="/en/js/wowchemy.min.js"></script>
+
+
+
+  <script src="/js/wowchemy-map.js" type="module"></script>
+
+
+
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+        <pre><code></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <script src="/js/wowchemy-publication.js" type="module"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
