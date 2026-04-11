@@ -84,8 +84,10 @@ date: 2026-04-11
         v[i] = 0.0
 
     вернуть y, v
+```
+    
 
-## 1.2. Алгоритм расчёта сил и ускорений
+##1.2. Алгоритм расчёта сил и ускорений
 
 **Вход:** `y`, `k`, `d`, `alpha`.  
 **Выход:** `a[i]`.
@@ -109,7 +111,8 @@ def ComputeAccelerations(y, k, d, alpha):
         F_total = F_right - F_left
         a[i] = F_total / 1.0  # m = 1
     
-    return a
+    return a 
+```
 
 ## 1.3. Алгоритм численного интегрирования (скоростной метод Верле)
 
@@ -134,6 +137,7 @@ def VelocityVerlet(y, v, a, dt):
         v_new[i] = v[i] + 0.5 * (a[i] + a_new[i]) * dt
     
     return y_new, v_new, a_new
+```
 
 ## 1.4. Алгоритм спектрального анализа (ДПФ)
 
@@ -159,6 +163,7 @@ def ComputeModeEnergies(y):
         E[l-1] = 0.5 * omega_l**2 * b_l**2
     
     return E
+```
 
 ## 2. Верификация алгоритмов
 

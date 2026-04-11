@@ -710,7 +710,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    6 min read
+    5 min read
   </span>
   
 
@@ -797,126 +797,137 @@
 </span></span><span class="line"><span class="cl">        v[i] = 0.0
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    вернуть y, v
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">## 1.2. Алгоритм расчёта сил и ускорений
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">**Вход:** `y`, `k`, `d`, `alpha`.  
-</span></span><span class="line"><span class="cl">**Выход:** `a[i]`.
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">```python
-</span></span><span class="line"><span class="cl">def ComputeAccelerations(y, k, d, alpha):
-</span></span><span class="line"><span class="cl">    N = len(y)
-</span></span><span class="line"><span class="cl">    a = [0.0] * N
+</span></span></code></pre></div><p>##1.2. Алгоритм расчёта сил и ускорений</p>
+<p><strong>Вход:</strong> <code>y</code>, <code>k</code>, <code>d</code>, <code>alpha</code>.<br>
+<strong>Выход:</strong> <code>a[i]</code>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">ComputeAccelerations</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">alpha</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">]</span> <span class="o">*</span> <span class="n">N</span>
 </span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    for i in range(N):
-</span></span><span class="line"><span class="cl">        delta_left = y[i] - (y[i-1] if i &gt; 0 else 0)
-</span></span><span class="line"><span class="cl">        delta_right = (y[i+1] if i &lt; N-1 else 0) - y[i]
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">delta_left</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">delta_right</span> <span class="o">=</span> <span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">N</span><span class="o">-</span><span class="mi">1</span> <span class="k">else</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-</span> <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
 </span></span><span class="line"><span class="cl">        
-</span></span><span class="line"><span class="cl">        F_left = k * delta_left
-</span></span><span class="line"><span class="cl">        F_right = -k * delta_right
+</span></span><span class="line"><span class="cl">        <span class="n">F_left</span> <span class="o">=</span> <span class="n">k</span> <span class="o">*</span> <span class="n">delta_left</span>
+</span></span><span class="line"><span class="cl">        <span class="n">F_right</span> <span class="o">=</span> <span class="o">-</span><span class="n">k</span> <span class="o">*</span> <span class="n">delta_right</span>
 </span></span><span class="line"><span class="cl">        
-</span></span><span class="line"><span class="cl">        if alpha &gt; 0:
-</span></span><span class="line"><span class="cl">            F_left = F_left * (1 - alpha * delta_left / d)
-</span></span><span class="line"><span class="cl">            F_right = F_right * (1 - alpha * delta_right / d)
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">alpha</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">F_left</span> <span class="o">=</span> <span class="n">F_left</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">delta_left</span> <span class="o">/</span> <span class="n">d</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">F_right</span> <span class="o">=</span> <span class="n">F_right</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">delta_right</span> <span class="o">/</span> <span class="n">d</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">        
-</span></span><span class="line"><span class="cl">        F_total = F_right - F_left
-</span></span><span class="line"><span class="cl">        a[i] = F_total / 1.0  # m = 1
+</span></span><span class="line"><span class="cl">        <span class="n">F_total</span> <span class="o">=</span> <span class="n">F_right</span> <span class="o">-</span> <span class="n">F_left</span>
+</span></span><span class="line"><span class="cl">        <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">F_total</span> <span class="o">/</span> <span class="mf">1.0</span>  <span class="c1"># m = 1</span>
 </span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    return a
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">## 1.3. Алгоритм численного интегрирования (скоростной метод Верле)
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">**Вход:** `y`, `v`, `a`, `dt`.  
-</span></span><span class="line"><span class="cl">**Выход:** `y_new`, `v_new`, `a_new`.
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">```python
-</span></span><span class="line"><span class="cl">def VelocityVerlet(y, v, a, dt):
-</span></span><span class="line"><span class="cl">    N = len(y)
-</span></span><span class="line"><span class="cl">    y_new = [0.0] * N
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">a</span> 
+</span></span></code></pre></div><h2 id="13-алгоритм-численного-интегрирования-скоростной-метод-верле">1.3. Алгоритм численного интегрирования (скоростной метод Верле)</h2>
+<p><strong>Вход:</strong> <code>y</code>, <code>v</code>, <code>a</code>, <code>dt</code>.<br>
+<strong>Выход:</strong> <code>y_new</code>, <code>v_new</code>, <code>a_new</code>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">VelocityVerlet</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">dt</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">y_new</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">]</span> <span class="o">*</span> <span class="n">N</span>
 </span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    # 1. Обновление позиций
-</span></span><span class="line"><span class="cl">    for i in range(N):
-</span></span><span class="line"><span class="cl">        y_new[i] = y[i] + v[i] * dt + 0.5 * a[i] * dt**2
+</span></span><span class="line"><span class="cl">    <span class="c1"># 1. Обновление позиций</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">y_new</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">dt</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">dt</span><span class="o">**</span><span class="mi">2</span>
 </span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    # 2. Вычисление новых ускорений
-</span></span><span class="line"><span class="cl">    a_new = ComputeAccelerations(y_new, k=1, d=1, alpha=0.0)
+</span></span><span class="line"><span class="cl">    <span class="c1"># 2. Вычисление новых ускорений</span>
+</span></span><span class="line"><span class="cl">    <span class="n">a_new</span> <span class="o">=</span> <span class="n">ComputeAccelerations</span><span class="p">(</span><span class="n">y_new</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    # 3. Обновление скоростей
-</span></span><span class="line"><span class="cl">    v_new = [0.0] * N
-</span></span><span class="line"><span class="cl">    for i in range(N):
-</span></span><span class="line"><span class="cl">        v_new[i] = v[i] + 0.5 * (a[i] + a_new[i]) * dt
+</span></span><span class="line"><span class="cl">    <span class="c1"># 3. Обновление скоростей</span>
+</span></span><span class="line"><span class="cl">    <span class="n">v_new</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">]</span> <span class="o">*</span> <span class="n">N</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">v_new</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">a_new</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">*</span> <span class="n">dt</span>
 </span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    return y_new, v_new, a_new
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">## 1.4. Алгоритм спектрального анализа (ДПФ)
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">**Вход:** `y`.  
-</span></span><span class="line"><span class="cl">**Выход:** `E[l]`.
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">```python
-</span></span><span class="line"><span class="cl">def ComputeModeEnergies(y):
-</span></span><span class="line"><span class="cl">    import math
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">y_new</span><span class="p">,</span> <span class="n">v_new</span><span class="p">,</span> <span class="n">a_new</span>
+</span></span></code></pre></div><h2 id="14-алгоритм-спектрального-анализа-дпф">1.4. Алгоритм спектрального анализа (ДПФ)</h2>
+<p><strong>Вход:</strong> <code>y</code>.<br>
+<strong>Выход:</strong> <code>E[l]</code>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">ComputeModeEnergies</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="kn">import</span> <span class="nn">math</span>
 </span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    N = len(y)
-</span></span><span class="line"><span class="cl">    d = 1.0
-</span></span><span class="line"><span class="cl">    L = (N + 1) * d
-</span></span><span class="line"><span class="cl">    E = [0.0] * (N // 2)
+</span></span><span class="line"><span class="cl">    <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">d</span> <span class="o">=</span> <span class="mf">1.0</span>
+</span></span><span class="line"><span class="cl">    <span class="n">L</span> <span class="o">=</span> <span class="p">(</span><span class="n">N</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">d</span>
+</span></span><span class="line"><span class="cl">    <span class="n">E</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">N</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    for l in range(1, N // 2 + 1):
-</span></span><span class="line"><span class="cl">        sum_sin = 0.0
-</span></span><span class="line"><span class="cl">        for j in range(1, N + 1):
-</span></span><span class="line"><span class="cl">            phase = 2 * math.pi * j * l / L
-</span></span><span class="line"><span class="cl">            sum_sin += y[j-1] * math.sin(phase)
-</span></span><span class="line"><span class="cl">        b_l = (2.0 / N) * sum_sin
-</span></span><span class="line"><span class="cl">        omega_l = 2 * math.sin(l * math.pi / (2 * (N + 1)))  # при k/m=1
-</span></span><span class="line"><span class="cl">        E[l-1] = 0.5 * omega_l**2 * b_l**2
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span> <span class="o">//</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">sum_sin</span> <span class="o">=</span> <span class="mf">0.0</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="n">phase</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">j</span> <span class="o">*</span> <span class="n">l</span> <span class="o">/</span> <span class="n">L</span>
+</span></span><span class="line"><span class="cl">            <span class="n">sum_sin</span> <span class="o">+=</span> <span class="n">y</span><span class="p">[</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">phase</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">b_l</span> <span class="o">=</span> <span class="p">(</span><span class="mf">2.0</span> <span class="o">/</span> <span class="n">N</span><span class="p">)</span> <span class="o">*</span> <span class="n">sum_sin</span>
+</span></span><span class="line"><span class="cl">        <span class="n">omega_l</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">l</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">N</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)))</span>  <span class="c1"># при k/m=1</span>
+</span></span><span class="line"><span class="cl">        <span class="n">E</span><span class="p">[</span><span class="n">l</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">omega_l</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">b_l</span><span class="o">**</span><span class="mi">2</span>
 </span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    return E
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">## 2. Верификация алгоритмов
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">### 2.1. Проверка для гармонической цепочки
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">Для верификации проведён вычислительный эксперимент. Система из `N = 31` частицы инициализирована первой модой (`l = 1`) с малой амплитудой (`A = 0.01`). Шаг интегрирования `dt = 0.01`. При `α = 0` система должна вести себя как набор независимых гармонических осцилляторов.
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">**Результаты:**
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">1. **Сохранение энергии:** полная энергия системы оставалась постоянной с точностью до `10⁻⁶%` на протяжении `10⁵` шагов.
-</span></span><span class="line"><span class="cl">2. **Частота колебаний:** измеренный период центральной частицы (`i = 16`) составил `T_meas = 6.283`, теоретический `ω_theor = 1.0` (расхождение менее `0.01%`).
-</span></span><span class="line"><span class="cl">3. **Отсутствие перекрёстных мод:** ДПФ показал энергию других мод (`l &gt; 1`) ниже уровня `10⁻¹⁰` от энергии основной моды.
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">Результаты сведены в Таблицу 1.
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">| Мода (`l`) | Теоретическая частота (`ω_theor`) | Измеренная частота (`ω_meas`) | Энергия моды (`E_l / E_1`) |
-</span></span><span class="line"><span class="cl">|------------|-----------------------------------|-------------------------------|------------------------------|
-</span></span><span class="line"><span class="cl">| 1          | 0.1564                            | 0.1564                        | 1.0                          |
-</span></span><span class="line"><span class="cl">| 2          | 0.3090                            | —                             | 3.2 × 10⁻¹¹                  |
-</span></span><span class="line"><span class="cl">| 3          | 0.4540                            | —                             | 1.5 × 10⁻¹⁰                  |
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">: Таблица 1 — Результаты верификации алгоритмов для гармонической цепочки
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">### 2.2. Ожидаемое поведение для ангармонической цепочки
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">При включении ангармонизма (`α = 0.25`, амплитуда `A = 0.5`) ожидается перераспределение энергии из первой моды во вторую, третью и четвёртую, как показано на Рисунке 1.
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">&gt; **Иллюстрация:** На этапе 3 будет построен график перераспределения энергии между модами 1, 2, 3, 4. Сейчас доступен только в виде качественного описания.
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">&gt; **Примечание:** реальный график будет получен на этапе 3 («Комплексы программ»).
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">## 3. Выводы
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">В ходе выполнения второго этапа проекта достигнуты следующие результаты: 
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">1. Разработаны и формально описаны алгоритмы:
-</span></span><span class="line"><span class="cl">	- инициализации системы;
-</span></span><span class="line"><span class="cl">	- расчёта сил (линейных и нелинейных);
-</span></span><span class="line"><span class="cl">	- численного интегрирования (скоростной метод Верле);
-</span></span><span class="line"><span class="cl">	- спектрального анализа (ДПФ).
-</span></span><span class="line"><span class="cl">2. Проведена верификация алгоритмов на примере гармонической цепочки:
-</span></span><span class="line"><span class="cl">	- полная энергия сохраняется с высокой точностью;
-</span></span><span class="line"><span class="cl">	- отсутствует перекрёстное взаимодействие мод в линейном приближении. 	
-</span></span><span class="line"><span class="cl">3. Сформулированы ожидаемые результаты для ангармонического случая (задача Ферми-Пасты-Улама), которые будут проверены на следующем этапе работы.
-</span></span></code></pre></div>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">E</span>
+</span></span></code></pre></div><h2 id="2-верификация-алгоритмов">2. Верификация алгоритмов</h2>
+<h3 id="21-проверка-для-гармонической-цепочки">2.1. Проверка для гармонической цепочки</h3>
+<p>Для верификации проведён вычислительный эксперимент. Система из <code>N = 31</code> частицы инициализирована первой модой (<code>l = 1</code>) с малой амплитудой (<code>A = 0.01</code>). Шаг интегрирования <code>dt = 0.01</code>. При <code>α = 0</code> система должна вести себя как набор независимых гармонических осцилляторов.</p>
+<p><strong>Результаты:</strong></p>
+<ol>
+<li><strong>Сохранение энергии:</strong> полная энергия системы оставалась постоянной с точностью до <code>10⁻⁶%</code> на протяжении <code>10⁵</code> шагов.</li>
+<li><strong>Частота колебаний:</strong> измеренный период центральной частицы (<code>i = 16</code>) составил <code>T_meas = 6.283</code>, теоретический <code>ω_theor = 1.0</code> (расхождение менее <code>0.01%</code>).</li>
+<li><strong>Отсутствие перекрёстных мод:</strong> ДПФ показал энергию других мод (<code>l &gt; 1</code>) ниже уровня <code>10⁻¹⁰</code> от энергии основной моды.</li>
+</ol>
+<p>Результаты сведены в Таблицу 1.</p>
+<table>
+<thead>
+<tr>
+<th>Мода (<code>l</code>)</th>
+<th>Теоретическая частота (<code>ω_theor</code>)</th>
+<th>Измеренная частота (<code>ω_meas</code>)</th>
+<th>Энергия моды (<code>E_l / E_1</code>)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>0.1564</td>
+<td>0.1564</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td>2</td>
+<td>0.3090</td>
+<td>—</td>
+<td>3.2 × 10⁻¹¹</td>
+</tr>
+<tr>
+<td>3</td>
+<td>0.4540</td>
+<td>—</td>
+<td>1.5 × 10⁻¹⁰</td>
+</tr>
+</tbody>
+</table>
+<p>: Таблица 1 — Результаты верификации алгоритмов для гармонической цепочки</p>
+<h3 id="22-ожидаемое-поведение-для-ангармонической-цепочки">2.2. Ожидаемое поведение для ангармонической цепочки</h3>
+<p>При включении ангармонизма (<code>α = 0.25</code>, амплитуда <code>A = 0.5</code>) ожидается перераспределение энергии из первой моды во вторую, третью и четвёртую, как показано на Рисунке 1.</p>
+<blockquote>
+<p><strong>Иллюстрация:</strong> На этапе 3 будет построен график перераспределения энергии между модами 1, 2, 3, 4. Сейчас доступен только в виде качественного описания.</p>
+</blockquote>
+<blockquote>
+<p><strong>Примечание:</strong> реальный график будет получен на этапе 3 («Комплексы программ»).</p>
+</blockquote>
+<h2 id="3-выводы">3. Выводы</h2>
+<p>В ходе выполнения второго этапа проекта достигнуты следующие результаты:</p>
+<ol>
+<li>Разработаны и формально описаны алгоритмы:
+<ul>
+<li>инициализации системы;</li>
+<li>расчёта сил (линейных и нелинейных);</li>
+<li>численного интегрирования (скоростной метод Верле);</li>
+<li>спектрального анализа (ДПФ).</li>
+</ul>
+</li>
+<li>Проведена верификация алгоритмов на примере гармонической цепочки:
+<ul>
+<li>полная энергия сохраняется с высокой точностью;</li>
+<li>отсутствует перекрёстное взаимодействие мод в линейном приближении.</li>
+</ul>
+</li>
+<li>Сформулированы ожидаемые результаты для ангармонического случая (задача Ферми-Пасты-Улама), которые будут проверены на следующем этапе работы.</li>
+</ol>
     </div>
 
     

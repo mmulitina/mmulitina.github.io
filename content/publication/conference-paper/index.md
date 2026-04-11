@@ -44,7 +44,8 @@ featured: true
 
 url_pdf: ''
 url_code: 'https://github.com/mmulitina/mathmod/tree/master/labs'
-url_video: 'https://youtube.com'
+url_video: 'https://rutube.ru/plst/1583220'
+
 
 
 
